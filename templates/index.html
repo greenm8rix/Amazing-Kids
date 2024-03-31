@@ -1,0 +1,524 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Amazing Kids | Centers For Excellence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+    <!-- all css here -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/slicknav.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/typography.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/default-css.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/responsive.css')}}">
+    <!--color css-->
+    <link rel="stylesheet" id="triggerColor" href="{{url_for('static',filename='src/assets/css/triggerplate/color-0.css')}}">
+    <!-- modernizr css -->
+    
+    <script src="static/src/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- prealoader area end -->
+    
+    <!-- header area start -->
+    <header id="header">
+       
+        <!-- header two area start -->
+        <div class="header-two">
+            {% for mesg in get_flashed_messages() %}
+                    <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{mesg}}
+                      </div>
+{% endfor %}
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-0 col-sm-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index "><img src="{{url_for('static',filename='src/assets/images/icon/logo.png')}}" alt="logo"></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                       
+                        <div class="main-menu menu-style2">
+                            
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <li><a href="index">Home</a>
+                                        <li><a href="pricing">Pricing</a>
+                                        
+                                    </li>
+                                    
+                                    
+                                    <li class="middle-logo">
+                                        <a href="index ">
+                                            
+                            
+                                            <img src="{{url_for('static',filename='src/assets/images/icon/logo-middle.png')}}" alt="logo">
+                                            <img class="hb-bottom-shape" src="{{url_for('static',filename='src/assets/images/icon/hb-bottom-shape.png')}}" alt="logo">
+                                        </a>
+                                    </li>
+                                    
+                                    
+                                    <li><a href="contact ">Contact</a></li>
+                                    <li><a href="javascript:void(0);">Learn While Having Fun</a>
+                                        <ul class="submenu">
+                                            <li><a href="games">Fun and Educative Games</a></li>
+                                            <li><a href="worksheets">Worksheets</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                {% for field in form_register.errors %}
+                                    {% for error in form_register.errors[field] %}
+                                    <div class="alert">
+                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        {{error}}
+                                      </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                    {% for field in form_login.errors %}    
+                                    {% for error in form_login.errors[field] %}
+                                    <div class="alert">
+                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        {{error}}
+                                      </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-sm-5">
+                        
+                        {% if current_user.is_authenticated %}
+                        
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li><a class="btn btn-primary btn-round" class="active" href="account">Account</a></li>
+                            </ul>
+                        </div>
+                        {%else%}                
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                
+                                <li><a data-toggle="modal" data-target="#exampleModal" class="btn btn-light btn-round" href="#">Log in</a></li>
+                                <li><a data-toggle="modal" data-target="#exampleModal2"  class="btn btn-primary btn-round" class="active" href="#">Sign Up</a></li>
+                            
+                            </ul>
+                        </div>
+                        <!-- Button trigger modal -->  
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form method="POST" action="signin"> 
+                                    {{ form_login.hidden_tag() }}
+                                    {{ form_login.email}}
+                                    {{ form_register.password}}
+                                    
+                                    <a class="primary-color" href="#"><u>Forgot password</u></a>
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Login">
+                                </form> 
+                              </div> 
+                            </div>
+                          </div>
+                        </div> 
+
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Please Sign Up Here</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body"> 
+                                <form class="signup-form text-center" method="POST" action="signup">
+                                    {{ form_register.hidden_tag() }}
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            {{ form_register.first_name}}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ form_register.last_name}}
+                                        </div>
+                                    </div>
+                                    {{ form_register.email}}
+                                    {{ form_register.password}}
+                                    <label class="checkbox-inline"><input type="checkbox" value="" required>I Agree to the <a href="tos">Terms of service</a></label>
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Register Now">
+                                </form> 
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                    </div><!-- col-lg-2 -->
+                    {%endif%}
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header two area end -->
+    </header>
+    <div class="body_overlay"></div>
+    <!-- body overlay area end -->
+    <!-- hero area start -->
+    <div class="hero-area has-color">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                    <div class="hero-content">
+                        <h1 class="mb-5"><span class="primary-color">Amazing Kids School
+                            </span><b class="line-break"></b>Centers For Excellence</h1>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hero area end -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="section-title-style2 white-title text-center">
+                    
+                    <h2 class="primary-color">One of the best care taking schools in Mangalore</h2>
+                    <p  style="color: rgb(0, 0, 0);">Main motto of our school is to provide essential skills, knowledge and ethics to our students so as to bring the best out of them. With our quality teaching methods we aim at providing stress-free and caring environment to the children so that they can learn effectively.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- course area start -->
+    <div class="course-area  ptb--0 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="section-title-style2 black-title title-tb text-center">
+                        <h2 class="primary-color">Learn While Having Fun</h2>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="commn-carousel owl-carousel card-deck"> 
+                <div class="card mb-5">
+                    <div class="course-thumb">
+                        <a href="math">
+                        <img src="{{url_for('static',filename='src/assets/images/course/cs-img1.jpg')}}" alt="image"></a>
+                    </div>
+                    <div class="card-body  p-25"> 
+                        <div class="course-meta-title mb-4">
+                            <div class="course-meta-text">
+                                <h4><a href="math">Math</a></h4>
+                                <ul class="course-meta-stats">
+                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
+                                    <li>36 <i class="fa fa-comment"></i></li>
+                                    <li>85 <i class="fa fa-heart"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>Math games can make learning more fun and engaging. When children play games, they can apply their math skills to new and unique scenarios while building logic and critical thinking skills. They also get a chance to practice math in a way that is fun and appeals to their interests.</p> 
+                  </div><!-- card-body -->
+                </div><!-- card -->
+ 
+                <div class="card mb-5">
+                    <div class="course-thumb">
+                        <a href="puzzle">
+                        <img src="{{url_for('static',filename='src/assets/images/course/cs-img2.jpg')}}" alt="image"></a>
+                    </div>
+                    <div class="card-body  p-25"> 
+                        <div class="course-meta-title mb-4">
+                            <div class="course-meta-text">
+                                <h4><a href="puzzle">Puzzle</a></h4>
+                                <ul class="course-meta-stats">
+                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
+                                    <li>36 <i class="fa fa-comment"></i></li>
+                                    <li>85 <i class="fa fa-heart"></i></li>
+                                </ul>
+                            </div> 
+                            
+                        </div>
+                        <p>Puzzles develop memory skills, as well as an ability to plan, test ideas and solve problems. While completing a puzzle, children need to remember shapes, colours, positions and strategies to complete them.</p> 
+                        
+                  </div><!-- card-body -->
+                </div><!-- card -->
+  
+                <div class="card mb-5">
+                    <div class="course-thumb">
+                        <a href="crossword">
+                        <img src="{{url_for('static',filename='src/assets/images/course/cs-img3.jpg')}}" alt="image"></a>
+                    </div>
+                    <div class="card-body  p-25"> 
+                        <div class="course-meta-title mb-4">
+                            <div class="course-meta-text">
+                                <h4><a href="crossword">CrossWord</a></h4>
+                                <ul class="course-meta-stats">
+                                    <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
+                                    <li>36 <i class="fa fa-comment"></i></li>
+                                    <li>85 <i class="fa fa-heart"></i></li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <p>Crosswords make reading and writing more interesting
+                            Crosswords for kids can improve their vocabulary, analytical skills, and memory. It is not just fun, but it is good for the mind. Brainpower can be stimulated in many ways, crosswords being one of them, and it helps in activating the mind.</p> 
+                        
+                  </div><!-- card-body -->
+                </div><!-- card --> 
+                <div class="card mb-5">
+                    <div class="course-thumb">
+                        <a href="games">
+                        <img src="{{url_for('static',filename='src/assets/images/course/cs-img4.jpg')}}" alt="image">
+                    </div>
+                    <div class="card-body  p-25"> 
+                        <div class="course-meta-title mb-4">
+                            <div class="course-meta-text">
+                                <h4><a href="games">And many more Activities like worksheets and other eductional games to keep your Child engaged and make learning fun Click on this Card to Explore More.</a></h4>
+                                
+                  </div><!-- card-body -->
+                </div><!-- card --> 
+            </div> 
+        </div>
+    </div>
+    </div>
+    <!-- course area end -->
+
+    <!-- take toure area start -->
+    
+        
+    
+    <!-- take toure area end -->
+
+    <!-- course area start -->
+    <div class="teacher-area pb--100">
+        <div class="container">
+            <div class="row">
+                
+            </div>
+            <div class="commn-carousel owl-carousel card-deck">   
+              <div class="card mb-5"> 
+                
+                <img src="{{url_for('static',filename='src/assets/images/teacher/3264220.png')}}" alt="image"> 
+                <div class="card-body teacher-content p-25">  
+                  <h4 class="card-title mb-4"><a >What we offer</a></h4>
+                  <p class="card-text">we are successful in offering world-class teaching and learning environment to our students. Some of the educational services include Day Care, Pre School, Kindergarten, Tuition Classes and Montessori.</p> 
+                  
+                </div>
+              </div><!-- card -->    
+
+              <div class="card mb-5"> 
+                
+                <img src="{{url_for('static',filename='src/assets/images/teacher/teacher.jpg')}}" alt="image"> 
+                <div class="card-body teacher-content p-25">  
+                  <h4 class="card-title mb-4"><a >Our Team</a></h4>
+                  <p class="card-text">Having several years of experience in this domain, we are engaged in providing effective and value education to children.</p> 
+                  
+                </div>
+              </div><!-- card -->    
+
+              
+              <div class="card mb-5"> 
+                
+                <img src="{{url_for('static',filename='src/assets/images/teacher/communication.jpg')}}" alt="image"> 
+                <div class="card-body teacher-content p-25">  
+                  <h4 class="card-title mb-4"><a>Communication with parents</a></h4>
+                  
+                  <p class="card-text">Proper feedback is shared with parents on regular basis, informing them about the overall progress of their children. This approach always helps parents and teachers to encourage maximum development of individual.
+
+                  </p> 
+                  
+                </div>
+              </div><!-- card -->  
+              <div class="card mb-5"> 
+                
+                <img src="{{url_for('static',filename='src/assets/images/teacher/syllabus.jpg')}}" alt="image"> 
+                <div class="card-body teacher-content p-25">  
+                  <h4 class="card-title mb-4"><a>Our syllabus</a></h4>
+                  <p class="card-text">We have suitably designed our syllabus so as to offer quality and practical knowledge which our students can easily grasp.</p> 
+                  
+                </div>
+              </div><!-- card -->         
+            </div>
+        </div>
+    </div>
+    <!-- course area end -->
+    
+
+    <!-- events area start -->
+    
+    <!-- events area end --> 
+    
+    <div class="testimonial-area ptb--120"><!-- testimonial area start -->
+        
+        <img class="tst-bg" src="{{url_for('static',filename='src/assets/images/bg/tst-bg-shape.png')}}" alt="image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 text-center">
+                    <div class="tst-carousel owl-carousel">
+                        <div class="testimonial-content pb--40">
+                            <div class="section-title sec-style-two">
+                                <span class="text-uppercase primary-color mb-0">Happy students And Parents</span>
+                                <h2>Testimonials</h2>
+                            </div>
+                            <div class="video-area">
+                                <a class="expand-video" href="https://www.youtube.com/watch?v=0_HuSOMxJpE"><i class="fa fa-play"></i></a>
+                            </div>
+                        </div>  
+                        <div class="testimonial-content pb--40">
+                            <div class="section-title sec-style-two">
+                                <span class="text-uppercase primary-color mb-0">Happy students And Parents</span>
+                                <h2>Testimonials</h2>
+                                <div class="video-area">
+                                    <a class="expand-video" href="https://www.youtube.com/watch?v=2qz0q_CWIGA"><i class="fa fa-play"></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>  
+                        <div class="testimonial-content pb--40">
+                            <div class="section-title sec-style-two">
+                                <span class="text-uppercase primary-color mb-0">Happy students And Parents</span>
+                                <h2>Testimonial</h2>
+                            </div>
+                            <h3>‘‘ I love the principal, she is really awesome. The school is child oriented very kid friendly atmosphere and teachers are very helpful. Although, my son could not attend the school for a long time during his vacation . Ms Shain was super helpful in providing writing materials , text books and helped me all the way she could possibly do . I personally recommend parents to feel safe while the kids are at Amazing kids 👍🏻 Thank you Amazing Kids 😊‘‘</h3>
+                            <h4>Puja Kamath</h4>
+                            <a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D3201769966554185%26id%3D100001636400449"> Testimonial</a>
+                        </div> 
+                    </div>
+                </div><!-- row -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- testimonial-area --> 
+
+    <!-- blog area start -->
+    <div class="contact-form-area pb--120">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="cnt-title">
+                        <h4>Get in touch <span>with us</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="https://getform.io/f/1f7f3f2e-4b16-4d71-8b98-44963948fd87" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" name="name" placeholder="Enter your name">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="email" name="email" placeholder="Your Email">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="col-12">
+                            <textarea name="msg" id="msg" placeholder="Your message here"></textarea>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit">SEND THE MESSAGE</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- cta area start -->
+    
+    <!-- cta area end -->
+
+    <!-- footer area start -->
+    <footer>
+        <div class="footer-top  has-color pt--120 pb--30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget widget-company">
+                            
+                            <a href="index "><img src="{{url_for('static',filename='src/assets/images/icon/logo.png')}}" alt="image"></a>
+                            <div class="address">
+                                <h6>Our Address</h6>
+                                <p><a href="https://www.google.com/maps/dir//D%23+1-5-22-1658%2F20+Sulthan+Batheri+Road,+Urva+Mkt,+Boloor+Village,+Ashoknagara,+post,+Hoige+Bail,+Ashok+Nagar,+Mangaluru,+Karnataka+574006/@12.8898938,74.7556904,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba35a7aba5221db:0xe5090349c30fecfc!2m2!1d74.825731!2d12.8899031">D# 1-5-22-1658/20 Sulthan Batheri Road, Urva Mkt, Boloor Village, Ashoknagara, post, Hoige Bail, Ashok Nagar, Mangaluru, Karnataka 574006</a></p>
+                            </div>
+                            <div class="address">
+                                <h6>Phone</h6>
+                                <p>+91 9448178369</p>
+                            </div>
+                            <div class="address">
+                                <h6>Email</h6>
+                                <p>amazingkidsschool@gmail.com</p>
+                            </div>
+                            <ul class="social">
+                                <li><a href="https://www.facebook.com/amazingkidsschool/"><i class="fa fa-facebook"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="widget widget-opening">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Working Day & time</h4>
+                            <ul>
+                                <li><span>Weekdays :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Sunday :</span>Closed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="footer-bottom">
+                    <span><a class="primary-color" href="tos" >Terms Of Service </a> </span> <span>& <a class="primary-color" href="tos" >Privacy Policy</a></span></p>
+                </div>
+                
+            </div>
+        </div>
+        
+    </footer>
+    <!-- footer area end -->
+ 
+    <!-- jquery latest version -->
+    
+    <script src="static/src/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="static/src/assets/js/bootstrap.min.js"></script>
+    <!-- others plugins -->
+    <script src="static/src/assets/js/owl.carousel.min.js"></script>
+    <script src="static/src/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="static/src/assets/js/jquery.slicknav.min.js"></script>
+    <script src="static/src/assets/js/plugins.js"></script>
+    <script src="static/src/assets/js/scripts.js"></script>
+    
+</body>
+
+</html>

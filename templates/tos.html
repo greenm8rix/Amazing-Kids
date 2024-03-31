@@ -1,0 +1,415 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Amazing Kids | Centers For Excellence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+    <!-- all css here -->
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/slicknav.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/typography.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/default-css.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/responsive.css')}}">
+    <!--color css-->
+    <link rel="stylesheet" id="triggerColor" href="{{url_for('static',filename='src/assets/css/triggerplate/color-0.css')}}">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+    <script src="static/src/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- prealoader area end -->
+    <!-- header area start -->
+    <header id="header">
+        <!-- header two area start -->
+        <div class="header-two">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-0 col-sm-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index "><img src="{{url_for('static',filename='src/assets/images/icon/logo.png')}}" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                        <div class="main-menu menu-style2">
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <li><a href="index">Home</a>
+                                        <li><a href="pricing">Pricing</a>
+                                        
+                                    </li>
+                                    
+                                    
+                                    <li class="middle-logo">
+                                        <a href="index ">
+                                            
+                            
+                                            <img src="{{url_for('static',filename='src/assets/images/icon/logo-middle.png')}}" alt="logo">
+                                            <img class="hb-bottom-shape" src="{{url_for('static',filename='src/assets/images/icon/hb-bottom-shape.png')}}" alt="logo">
+                                        </a>
+                                    </li>
+                                    
+                                    
+                                    <li><a href="contact ">Contact</a></li>
+                                    <li><a href="javascript:void(0);">Learn While Having Fun</a>
+                                        <ul class="submenu">
+                                            <li><a href="games">Fun and Educative Games</a></li>
+                                            <li><a href="worksheets">Worksheets</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-sm-5">
+                        {% for field in form_register.errors %}
+                                    {% for error in form_register.errors[field] %}
+                                    <div class="alert alert-error">
+                                        {{error}}
+                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% for field in form_register.errors %}
+                                    {% for error in form_login.errors[field] %}
+                                    <div class="alert alert-error">
+                                        {{error}}
+                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% for mesg in get_flashed_messages() %}
+                                        <div class="alert alert-error">
+                                            {{mesg}}
+                                            </div>
+      {% endfor %}
+                        {% if current_user.is_authenticated %}
+                        
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li><a class="btn btn-primary btn-round" class="active" href="account">Account</a></li>
+                            </ul>
+                        </div>
+                        {%else%}                
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                
+                                <li><a data-toggle="modal" data-target="#exampleModal" class="btn btn-light btn-round" href="#">Log in</a></li>
+                                <li><a data-toggle="modal" data-target="#exampleModal2"  class="btn btn-primary btn-round" class="active" href="#">Sign Up</a></li>
+                            
+                            </ul>
+                        </div>
+                        <!-- Button trigger modal -->  
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form method="POST" action="signin"> 
+                                    {{ form_login.hidden_tag() }}
+                                    {{ form_login.email}}
+                                    {{ form_register.password}}
+                                    
+                                    <a class="primary-color" href="#"><u>Forgot password</u></a>
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Login">
+                                </form> 
+                              </div> 
+                            </div>
+                          </div>
+                        </div> 
+
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Please Sign Up Here</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body"> 
+                                <form class="signup-form text-center" method="POST" action="signup">
+                                    {{ form_register.hidden_tag() }}
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            {{ form_register.first_name}}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ form_register.last_name}}
+                                        </div>
+                                    </div>
+                                    {{ form_register.email}}
+                                    {{ form_register.password}}
+                                    <label class="checkbox-inline"><input type="checkbox" value="" required>I Agree to the <a href="tos">Terms of service</a></label>
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Register Now">
+                                </form> 
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                    </div><!-- col-lg-2 -->
+                    {%endif%}
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header two area end -->
+    </header>
+    <div class="course-area  ptb--0 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="section-title-style2 black-title title-tb text-center">
+                        <h2 class="primary-color">Learn While Having Fun</h2>
+                    </div>
+                </div>
+            </div>
+    
+		<h1 class="entry-title" itemprop="headline">Terms and Conditions</h1>	</header><!-- .entry-header -->
+
+       
+		
+<p>PLEASE READ THESE TERMS AND CONDITIONS OF USE CAREFULLY BEFORE USING THIS WEBSITE.</p>
+
+
+
+<p>Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy and website disclaimer, govern Amazing Kids or Shahin’s relationship with you in relation to your use of this website.</p>
+
+
+
+<p>By using this website, you signify your acceptance of these terms and conditions of use. For the purposes of these terms and conditions, “Us”, “Our” and “We” refers to Amazing Kids or Shahin and “You” and “Your” refers to you, the client, visitor, website user or person using our website.</p>
+
+
+
+<p>AMENDMENT OF TERMS</p>
+
+
+
+<p>We reserve the right to change, modify, add or remove portions of these terms at any time. Please check these terms regularly prior to using our website to ensure you are aware of any changes. We will endeavour to highlight any significant or substantive changes to you where possible. If you choose to use our website then we will regard that use as conclusive evidence of your agreement and acceptance that these terms govern your and Amazing Kids or Shahin’s rights and obligations to each other.</p>
+
+
+
+<p>LIMITATION OF LIABILITY</p>
+
+
+
+<p>It is an essential pre-condition to you using our website that you agree and accept that Amazing Kids or Shahin is not legally responsible for any loss or damage you might suffer related to your use of the website, whether from errors or from omissions in our documents or information, any goods or services we may offer or from any other use of the website. Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable.</p>
+
+
+
+<p>It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific, personal requirements. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</p>
+
+
+
+<p>COMPETITION AND CONSUMER ACT</p>
+<p>You must be over 18 years of age to use this website and to purchase any goods or services.</p>
+<p>RETURNS AND REFUNDS</p>
+
+
+
+<p>Due to the nature of our business there will be no refunds on purchases but can cancel the subscription at anytime</p>
+
+
+
+<p>LINKS TO OTHER WEBSITES</p>
+<p>Amazing Kids or Shahin may from time to time provide on its website, links to other websites and information on those websites for your convenience. This does not necessarily imply sponsorship, endorsement, or approval or arrangement between Amazing Kids or Shahin and the owners of those websites. Amazing Kids or Shahin takes no responsibility for any of the content found on the linked websites.</p>
+
+
+
+<p>Amazing Kids or Shahin’s website may contain information provided by third parties for which Amazing Kids or Shahin accepts no responsibility whatsoever for information or advice provided to you directly by third parties. We are making a ‘recommendation’ only and are not providing any advice nor do we take any responsibility for any advice received in this regard.</p>
+
+
+
+<p>DISCLAIMER</p>
+
+
+
+<p>To the fullest extent permitted by law, Amazing Kids or Shahin absolutely disclaims all warranties, expressed or implied, including, but not limited to, implied warranties of merchantability and fitness for any particular purpose. Amazing Kids or Shahin gives no warranty that the documents, goods or services will be free of errors, or that defects will be corrected, or that our website or its server is free of viruses or any other harmful components.</p>
+
+
+
+<p>Whilst we, at all times endeavour to have the most accurate, reliable and up-to-date information on our website, we do not warrant or make any representations regarding the use or the result of the use of any document, product, service, link or information in its website or as to their correctness, suitability, accuracy, reliability, or otherwise.</p>
+
+
+
+<p>It is your sole responsibility and not the responsibility of Amazing Kids or Shahin to bear any entire costs of servicing, repairs, or correction. The applicable law in your state or territory may not permit these exclusions, particularly the exclusions of some implied warranties. Some of the above may not apply to you but you must ensure you are aware of any risk you may be taking by using this website or any products or services that may be offered through it. It is your responsibility to do so.</p>
+
+
+
+<p>YOUR PRIVACY</p>
+
+
+
+<p>At Amazing Kids or Shahin, we are committed to protecting your privacy. We use the information we collect about you to maximize the services that we provide to you. Amazing Kids or Shahin respects the privacy and confidentiality of the information provided by you and adheres to the Indian Privacy Principles. Please read our separate Privacy Policy carefully.</p>
+
+
+
+<p>You may change your details at any time by advising us in writing via email. All information we receive from our customers, is protected by our secure servers. Amazing Kids or Shahin’s secure server software encrypts all customer information before it is sent to us. Furthermore, all of the customer data Amazing Kids or Shahin collects is secured against unauthorized use or access. Credit card information is not stored by us on our servers.</p>
+
+
+
+<p>THIRD PARTIES</p>
+
+
+
+<p>Amazing Kids or Shahin does not and will not sell or deal in personal or customer information. We may however use in a general sense without any reference to your name, your information to create marketing statistics, identify user demands and to assist it in meeting customer needs generally. In addition, we may use the information that you provide to improve its website and its services but not for any other use.</p>
+
+
+
+<p>DISCLOSE YOUR INFORMATION</p>
+
+
+
+<p>Amazing Kids or Shahin may be required, in certain circumstances, to disclose information in good faith and where Amazing Kids or Shahin is required to do so in the following circumstances: by law or by any court; to enforce the terms of any of our customer agreements; or to protect the rights, property or safety of Amazing Kids or Shahin, its customers or third parties.</p>
+
+
+
+<p>EXCLUSION OF COMPETITORS</p>
+
+
+
+<p>If you are in the business of creating similar documents, goods or services for the purpose of providing them for a fee to users, whether they be business users or domestic users, then you are a competitor of Amazing Kids or Shahin. Amazing Kids or Shahin expressly excludes and does not permit you to use or access its website, to download any documents or information from its website or obtain any such documents or information through a third party. If you breach this term then Amazing Kids or Shahin will hold you fully responsible for any loss that it might sustain and further holds you accountable for all profits that you might make from such unpermitted and improper use. Amazing Kids or Shahin reserves the right to exclude and not permit any person from using its website or any of the documents and information contained on it.</p>
+
+
+
+<p>COPYRIGHT, TRADEMARK AND RESTRICTIONS OF USE</p>
+
+
+
+<p>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance, trademarks and graphics. You are not permitted to reproduce the documents, information or materials on the website for the purposes of sale or the use by any third party. In particular you are not permitted to republish, upload, transmit electronically or otherwise or distribute any of the materials, documents or products that may be available for download from time to time on this website.</p>
+
+
+
+<p>Amazing Kids or Shahin expressly reserves all copyright and trademark in its website and in all documents and information on its website and reserves the right to take action against you if you breach any of these terms.</p>
+
+
+
+<p>Any redistribution or reproduction of part or all of the contents in any form is prohibited other than the following: you may print or download to a local hard disk extracts for your personal and non-commercial use only; and you may copy the content to individual third parties for their personal use, but only if you acknowledge the website as the source of the material.</p>
+
+
+
+<p>You may not, except with our express written permission, distribute or commercially exploit the content. Nor may you transmit it or store it in any other website or other form of electronic retrieval system.</p>
+
+
+
+<p>WHOLE AGREEMENT</p>
+
+
+
+<p>These terms and conditions represent the whole agreement between you and Amazing Kids or Shahin concerning your use and access to Amazing Kids or Shahin’s website and your use and access to the documents and information on it. No other term is to be included in this agreement except where it is required to be included by any legislation of the Commonwealth or any State or Territory. All implied terms except those implied by statute and which cannot be expressly excluded are hereby expressly excluded.</p>
+
+
+
+<p>EXCLUSION OF UNENFORCEABLE TERMS</p>
+
+
+
+<p>Where any clause or term above would by any applicable statute be illegal, void, or unenforceable in any State or Territory then such a clause shall not apply in that State or Territory and shall be deemed never to have been included in these terms and conditions in that State or Territory. Such a clause if legal and enforceable in any other State or Territory shall continue to be fully enforceable and part of this agreement in those other States and Territories. The deemed exclusion of any term pursuant to this paragraph shall not affect or modify the full enforceability and construction of the other clauses of these terms and conditions.</p>
+
+
+
+<p>EDUCATION OR LIFECOACHING</p>
+
+
+
+<p>By using our services, you agree that Amazing Kids or Shahin is not to be held liable for any decisions you make based on any of our services or guidance and any consequences, as a result, are your own. Under no circumstances can you hold Amazing Kids or Shahin liable for any actions you take nor can you hold us or any of our employees liable for any loss or costs incurred by you as a result of any guidance, advice, coaching, materials or techniques used or provided by Amazing Kids or Shahin.</p>
+
+
+
+<p>All our information on both the website and in consultations is intended to assist you and does not in any way, nor is it intended to substitute professional, financial or legal advice. Results are not guaranteed and Amazing Kids or Shahin takes no responsibility for your actions, choices or decisions.</p>
+
+
+</div>
+
+<footer>
+        <div class="footer-top  has-color pt--120 pb--30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget widget-company">
+                            
+                            <a href="index "><img src="{{url_for('static',filename='src/assets/images/icon/logo.png')}}" alt="image"></a>
+                            <div class="address">
+                                <h6>Our Address</h6>
+                                <p><a href="https://www.google.com/maps/dir//D%23+1-5-22-1658%2F20+Sulthan+Batheri+Road,+Urva+Mkt,+Boloor+Village,+Ashoknagara,+post,+Hoige+Bail,+Ashok+Nagar,+Mangaluru,+Karnataka+574006/@12.8898938,74.7556904,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba35a7aba5221db:0xe5090349c30fecfc!2m2!1d74.825731!2d12.8899031">D# 1-5-22-1658/20 Sulthan Batheri Road, Urva Mkt, Boloor Village, Ashoknagara, post, Hoige Bail, Ashok Nagar, Mangaluru, Karnataka 574006</a></p>
+                            </div>
+                            <div class="address">
+                                <h6>Phone</h6>
+                                <p>+91 9448178369</p>
+                            </div>
+                            <div class="address">
+                                <h6>Email</h6>
+                                <p>amazingkidsschool@gmail.com</p>
+                            </div>
+                            <ul class="social">
+                                <li><a href="https://www.facebook.com/amazingkidsschool/"><i class="fa fa-facebook"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="widget widget-opening">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Working Day & time</h4>
+                            <ul>
+                                <li><span>Weekdays :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Sunday :</span>Closed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="footer-bottom">
+                    <span><a class="primary-color" href="tos" >Terms Of Service </a> </span> <span>& <a class="primary-color" href="tos" >Privacy Policy</a></span></p>
+                </div>
+                
+            </div>
+        </div>
+        
+    </footer>
+<!-- footer area end -->
+
+<!-- jquery latest version -->
+
+<script src="static/src/assets/js/vendor/jquery-2.2.4.min.js"></script>
+<!-- bootstrap 4 js -->
+<script src="static/src/assets/js/bootstrap.min.js"></script>
+<!-- others plugins -->
+<script src="static/src/assets/js/owl.carousel.min.js"></script>
+<script src="static/src/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="static/src/assets/js/jquery.slicknav.min.js"></script>
+<script src="static/src/assets/js/plugins.js"></script>
+<script src="static/src/assets/js/scripts.js"></script>
+
+</body>
+
+</html>

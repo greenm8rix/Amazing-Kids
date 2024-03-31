@@ -1,0 +1,58 @@
+.h1
+{
+	font-size: 50px;
+	display:inline;
+	text-align: center;	
+}
+#h11
+{	color:aqua;		}
+#h12
+{	color:red;		}
+#h13
+{	color:orange;	}
+#h14
+{	color:yellow;	}
+#h15
+{	color:pink;		}
+
+.buttons
+{
+	width:25px;
+	height:150px;
+	background-color: white;
+	border-radius: 25%;
+}
+#but1
+{	margin-right: 10px;	}
+#but2
+{	margin-right: 15px;	}
+#but3
+{	margin-right: 8px;	}
+#but4
+{	margin-right: 5px;	}
+#but5
+{	margin-right: 5px;	}
+#but6
+{	margin-right: 5px;	}
+#but7
+{	margin-right: 5px;	}
+#but8
+{	margin-right: 5px;	}
+#but9
+{	margin-right: 15px;	}
+#but10
+{	margin-right: 30px;	}
+
+#wrong{
+    width:25%;
+    height:20%;
+    display: none;
+}
+body{
+	background:url("static/src/assets/images/gameimages/8609202_5852.jpg");
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    background: #f7be06;
+    overflow-x: hidden;
+}

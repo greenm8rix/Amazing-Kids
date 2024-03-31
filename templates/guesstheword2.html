@@ -1,0 +1,162 @@
+<html>
+<head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <title>Amazing Kids | guess the word</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+	body {
+		background: black center center no-repeat;
+		background-size: 100%;
+	}
+	.question {
+		text-align: center;
+	}
+	.question img {
+		margin-top: 30px;
+		max-width: 200px;
+	}
+	.block {
+		background: pink;
+		font-size: 40px;
+		border: 5px solid black;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.correct {
+		background: lightgreen;
+	}
+	.wrong {
+		background: red;
+	}
+	.win {
+		background: rgba(200, 200, 200, 0.7);
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		z-index: 3;
+		font-size: 40px;
+		font-weight: 700;
+		align-items: center;
+		justify-content: center;	
+		left: 0;
+		top: 0;
+		display: none;
+	}
+	.win span {
+		display: block;
+		max-width: 500px;
+		width: 80%;
+		height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: lightblue;
+		border: 5px solid #666;
+	}
+  </style>
+</head>
+
+<body>
+	<div class="container">
+	  <div class="row">
+		<div class="win"><span>WELL DONE!</span></div>
+		<div class="col-7 question">
+			<img id="img" />
+		</div>
+		<div class="col-5 answer">
+		</div>
+	  </div>
+	</div>
+	
+	<audio id="sfx1" src="{{url_for('static',filename='src/assets/gameaudio/sfx/1.mp3')}}" preload="auto"></audio>
+	<audio id="sfx2" src="{{url_for('static',filename='src/assets/gameaudio/sfx/2.mp3')}}" preload="auto"></audio>
+	<audio id="sfx3" src="{{url_for('static',filename='src/assets/gameaudio/sfx/3.mp3')}}" preload="auto"></audio>
+  
+  <script>
+	var isDigraphQuestionIncluded = true;
+	var sfx1 = document.getElementById("sfx1");
+	var sfx2 = document.getElementById("sfx2");
+	var questions = [
+		{question: 'cat', options: ['can', 'cat', 'rat', 'cap']},
+		{question: 'run', options: ['pat', 'rat', 'run', 'bun']},
+		{question: 'cow', options: ['cow', 'bow', 'cat', 'row']},
+		{question: 'pen', options: ['pat', 'hen', 'pen', 'cap']},
+		{question: 'bus', options: ['can', 'bus', 'rat', 'bat']},
+		{question: 'hen', options: ['can', 'hen', 'rat', 'hip']},
+		{question: 'hat', options: ['hen', 'cat', 'bat', 'hat']},
+		{question: 'fox', options: ['fox', 'fit', 'box', 'far']},
+		{question: 'sun', options: ['sun', 'run', 'sat', 'sam']},
+		{question: 'sit', options: ['sun', 'see', 'sit', 'bun']},
+		{question: 'bat', options: ['bun', 'cat', 'rat', 'bat']},
+		{question: 'box', options: ['bin', 'bun', 'fox', 'box']},
+		{question: 'dog', options: ['dog', 'cat', 'rat', 'cap']},
+		{question: 'bug', options: ['big', 'bug', 'rug', 'bin']},
+		{question: 'jar', options: ['jog', 'jar', 'bar', 'ban']},
+		{question: 'man', options: ['man', 'mat', 'sun', 'run']},
+		{question: 'pat', options: ['bat', 'pat', 'tap', 'put']},
+	];
+	var shuffled_questions = questions.sort(function (a, b) { return 0.5 - Math.random() });
+	var qno = 0;
+	
+	function init_question() {
+		var question = shuffled_questions[qno];
+		$("#img").attr('src', "{{url_for('static',filename='src/assets/images/gameimages/images-library/')}}"+question.question+'.jpg');
+		var shuffled_options = question.options.sort(function (a, b) { return 0.5 - Math.random() });
+		$(".container .answer").html('');
+		for(var i = 0; i < shuffled_options.length; i++) {
+			$(".container .answer").append("<div class='col-12 block' data-answer='"+shuffled_options[i]+"'>"+shuffled_options[i]+"</div>");
+		}
+	}
+	
+	init_question();
+	
+	
+	$(".container").on("click", ".block", function(){
+		var el = $(this);
+		var selection = el.attr("data-answer");
+		var correct = selection === shuffled_questions[qno].question;
+		el.addClass(correct ? "correct" : "wrong");
+		
+		if(correct) {
+			sfx1.currentTime = 0;
+			sfx1.play();
+		} else {
+			sfx2.currentTime = 0;
+			sfx2.play();
+		}
+		
+		setTimeout(function() {
+			el.removeClass("correct");
+			el.removeClass("wrong");
+			if(correct){
+				qno++;
+				
+				if(qno === questions.length)
+				{
+					// win
+					$(".win").css("display", "flex");
+					sfx3.currentTime = 0;
+					sfx3.play();
+					
+				} else init_question();
+			}
+		}, 2000);
+	});
+  </script>
+  
+</body>
+</html>

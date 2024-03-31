@@ -1,0 +1,348 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Amazing Kids | Centers For Excellence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+    <!-- all css here -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/slicknav.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/typography.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/default-css.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/assets/css/responsive.css')}}">
+    <script src="https://js.stripe.com/v3/"></script> 
+    <!--color css-->
+    <link rel="stylesheet" id="triggerColor" href="{{url_for('static',filename='src/assets/css/triggerplate/color-0.css')}}">
+    <!-- modernizr css -->
+    
+    <script src="static/src/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- prealoader area end -->
+    <!-- header area start -->
+    <header id="header">
+        <!-- header two area start -->
+        <div class="header-two">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-0 col-sm-6 d-block d-lg-none">
+                        <div class="logo">
+                            <a href="index "><img src="{{url_for('static',filename='src/assets/images/icon/logo.png')}}" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                        <div class="main-menu menu-style2">
+                            <nav>
+                                <ul id="m_menu_active">
+                                    <li><a href="index">Home</a>
+                                        <li><a href="pricing">Pricing</a>
+                                        
+                                    </li>
+                                    
+                                    
+                                    <li class="middle-logo">
+                                        <a href="index ">
+                                            
+                            
+                                            <img src="{{url_for('static',filename='src/assets/images/icon/logo-middle.png')}}" alt="logo">
+                                            <img class="hb-bottom-shape" src="{{url_for('static',filename='src/assets/images/icon/hb-bottom-shape.png')}}" alt="logo">
+                                        </a>
+                                    </li>
+                                    
+                                    
+                                    <li><a href="contact ">Contact</a></li>
+                                    <li><a href="javascript:void(0);">Learn While Having Fun</a>
+                                        <ul class="submenu">
+                                            <li><a href="games">Fun and Educative Games</a></li>
+                                            <li><a href="worksheets">Worksheets</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-2 col-sm-5">
+                        {% for field in form_register.errors %}
+                                    {% for error in form_register.errors[field] %}
+                                    <div class="alert alert-error">
+                                        {{error}}
+                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% for field in form_register.errors %}
+                                    {% for error in form_login.errors[field] %}
+                                    <div class="alert alert-error">
+                                        {{error}}
+                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% for mesg in get_flashed_messages() %}
+                                        <div class="alert alert-error">
+                                            {{mesg}}
+                                            </div>
+      {% endfor %}
+                        {% if current_user.is_authenticated %}
+                        
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                <li><a class="btn btn-primary btn-round" class="active" href="account">Account</a></li>
+                            </ul>
+                        </div>
+                        {%else%}                
+                        <div class="header-bottom-right-style-2">
+                            <ul>
+                                
+                                <li><a data-toggle="modal" data-target="#exampleModal" class="btn btn-light btn-round" href="#">Log in</a></li>
+                                <li><a data-toggle="modal" data-target="#exampleModal2"  class="btn btn-primary btn-round" class="active" href="#">Sign Up</a></li>
+                            
+                            </ul>
+                        </div>
+                        <!-- Button trigger modal -->  
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form method="POST" action="signin"> 
+                                    {{ form_login.hidden_tag() }}
+                                    {{ form_login.email}}
+                                    {{ form_register.password}}
+                                    
+                                    <a class="primary-color" href="#"><u>Forgot password</u></a>
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Login">
+                                </form> 
+                              </div> 
+                            </div>
+                          </div>
+                        </div> 
+
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Please Sign Up Here</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body"> 
+                                <form class="signup-form text-center" method="POST" action="signup">
+                                    {{ form_register.hidden_tag() }}
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            {{ form_register.first_name}}
+                                        </div>
+                                        <div class="col-lg-6">
+                                            {{ form_register.last_name}}
+                                        </div>
+                                    </div>
+                                    {{ form_register.email}}
+                                    {{ form_register.password}}
+                                    <label class="checkbox-inline"><input type="checkbox" value="" required>I Agree to the <a href="tos">Terms of service</a></label>
+                                     
+                                    <input class="btn btn-primary btn-sm" type="submit" value="Register Now">
+                                </form> 
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                    </div><!-- col-lg-2 -->
+                    {%endif%}
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header two area end -->
+    </header>
+    <div class="body_overlay"></div>
+    <div class="crumbs-area">
+        <div class="container">
+            <div class="crumb-content">
+                <h4 class="crumb-title"><span>Pri</span>cing</h4>
+            </div>
+        </div>
+    </div>
+    <div class="blog-details-area ptb--120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="course-details">
+                        <div class="cs-thumb mb-5">
+                            
+                            <img src="{{url_for('static',filename='src/assets/images/blog/blog-details.jpg')}}" alt="image">
+                        </div>
+                        <div class="cs-content"  style=" color:black">
+                            
+                            <h3 class="mb-4"><a href="#">Why Playing educational games are important?</a></h3>
+                                
+                            <p>Research has shown that games are essential for healthy development in early childhood and beyond. Play lets children practise what they know, and also what they don't. It allows them to experiment through trial and error, find solutions to problems, work out the best strategies, and build new confidence and skills.</p>
+                            <h3 class="mb-4"><a href="#">What we offer?</a></h3>
+                            <div>
+                                <div  style=" color:black">
+                            <ol >
+                                <li style="margin: 20px; font-size:20px; line-height: 80%;">
+                                    A library Of Constantly Updating Games that We Hand Select to Ensure that Your kids Have fun while learning
+                                </li>
+                                <li style="margin: 20px; font-size:20px; line-height: 80%;">
+                                    These Games Are Designed to :
+                                    <ol >
+                                        <li style="margin: 20px; font-size:20px; line-height: 80%; ">
+                                            boost children's ability to think out of the box
+                                                
+                                    </li>
+                                    <li style="margin: 20px; font-size:20px; line-height: 80%; ">
+                                        Improve Problem-Solving & Strategic Thinking
+                                    </li>
+                                    <li style="margin: 20px; font-size:20px; line-height: 80%; ">
+                                    It Expands Memory Capacity
+                                </li>
+                                <li style="margin: 20px; font-size:20px; line-height: 80%; ">
+                                Students learn through the process of playing the game.
+                            </li>
+                            <li style="margin: 20px; font-size:20px; line-height: 80%; ">
+                            Games grab student’s attention and actively engage them.
+                        </li> 
+                                </ol>
+                                </li>
+                                <li style="margin: 20px; font-size:20px; line-height: 80%; ">Worksheets For Your Kids To solve That We Make And Update Every Week</li>
+
+                            </ol>
+                        </div>
+                            </div>
+                            {% if current_user.is_authenticated%}
+                                {% if current_user.subscription_tier==True and data!=None%}
+                            <div class="subscribe">
+                                <form action="games">
+                                    <button type="submit" >You have Already Purchased This plan,Thank You!</button>
+                                </form>
+                                <div>
+                                <form style="padding:30px;" action="account" method="get">
+                                    <button   type="submit" >Want to manage your subscription Or Renew?</button>
+                                </form>
+                            </div>
+                            </div>
+                                {%else%}
+                            <div class="subscribe">
+                                <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+                                <form target="dummyframe">
+                                    <button type="submit" id ="submitBtn">Purchase Your Subscription For Just ₹350/mo</button>
+                                </form>
+                                
+                            </div>
+                            {%endif%}
+                            {%else%}
+                            <div class="subscribe">
+                                <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+                                <form target="dummyframe">
+                                    <button type="submit" id ="submitBtn">Purchase Your Subscription For Just ₹350/mo You need to login First!!!</button>
+                                </form>
+                            </div>
+                            
+                            {%endif%}
+                            <!-- <iframe src="https://www.spellingcity.com/letterFall-spelling-game.html?listId=53827126&amp;format=raw" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" msallowfullscreen="true" width="800" height="510.2251082251082" frameborder="0" scrolling="no"></iframe> -->
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+        </div>
+    </div>
+    </div>
+</div>
+    <footer>
+        <div class="footer-top  has-color pt--120 pb--30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="widget widget-company">
+                            
+                            <a href="index "><img src="{{url_for('static',filename='src/assets/images/icon/logo.png')}}" alt="image"></a>
+                            <div class="address">
+                                <h6>Our Address</h6>
+                                <p><a href="https://www.google.com/maps/dir//D%23+1-5-22-1658%2F20+Sulthan+Batheri+Road,+Urva+Mkt,+Boloor+Village,+Ashoknagara,+post,+Hoige+Bail,+Ashok+Nagar,+Mangaluru,+Karnataka+574006/@12.8898938,74.7556904,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba35a7aba5221db:0xe5090349c30fecfc!2m2!1d74.825731!2d12.8899031">D# 1-5-22-1658/20 Sulthan Batheri Road, Urva Mkt, Boloor Village, Ashoknagara, post, Hoige Bail, Ashok Nagar, Mangaluru, Karnataka 574006</a></p>
+                            </div>
+                            <div class="address">
+                                <h6>Phone</h6>
+                                <p>+91 9448178369</p>
+                            </div>
+                            <div class="address">
+                                <h6>Email</h6>
+                                <p>amazingkidsschool@gmail.com</p>
+                            </div>
+                            <ul class="social">
+                                <li><a href="https://www.facebook.com/amazingkidsschool/"><i class="fa fa-facebook"></i></a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="widget widget-opening">
+                            <h4 class="fwidget-title mb-5 pb-3 primary-color">Working Day & time</h4>
+                            <ul>
+                                <li><span>Weekdays :</span>8.00 am - 6.00 pm</li>
+                                <li><span>Sunday :</span>Closed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="footer-bottom">
+                    <span><a class="primary-color" href="tos" >Terms Of Service </a> </span> <span>& <a class="primary-color" href="tos" >Privacy Policy</a></span></p>
+                </div>
+                
+            </div>
+        </div>
+        
+    </footer>
+    <!-- footer area end -->
+     
+    <!-- jquery latest version -->
+    <script src="static/src/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="static/src/assets/js/bootstrap.min.js"></script>
+    <!-- others plugins -->
+    <script src="static/src/assets/js/owl.carousel.min.js"></script>
+    <script src="static/src/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="static/src/assets/js/jquery.slicknav.min.js"></script>
+    <script src="static/src/assets/js/plugins.js"></script>
+    <script src="static/src/assets/js/scripts.js"></script>
+   
+</body>
+
+</html>

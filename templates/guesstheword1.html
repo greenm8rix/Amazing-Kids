@@ -1,0 +1,179 @@
+<html>
+<head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <title>Amazing Kids | guess the word</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+	body {
+		background: black center center no-repeat;
+		background-size: 100%;
+	}
+	.container {
+		padding-top: 30px;
+	}
+	#word_container {
+		text-align: center;
+	}
+	#word_container img {
+		max-height: 50%;
+		max-width: 50%;
+	}
+	#word {
+		font-size: 90px;
+		text-align: center;
+		color: grey;
+	}
+	#word.hide span {
+		visibility: hidden;
+	}
+	#word .highlight {
+		color: pink;
+		visibility: visible !important;
+	}
+	.block {
+		background: orange;
+		font-size: 40px;
+		border: 5px solid black;
+		text-align: center;
+		border-radius: 100px;
+		line-height: 1;
+		padding: 15px 0;
+	}
+	.correct {
+		background: lightgreen;
+	}
+	.wrong {
+		background: red;
+	}
+  </style>
+</head>
+
+<body>
+	<div class="container">
+	  <div class="row">
+		<div class="col-5">
+			<div id="word_container">
+				
+				<img src="{{url_for('static',filename='src/assets/images/gameimages/images-library/cow.jpg')}}" />
+				<div id="word"></div>
+				<div><button id="show" type="button" class="btn btn-primary">Hide Word</button></div>
+			</div>
+		</div>
+		<div class="col-7">
+			<div class="row letter-row">
+			
+			</div>
+		</div>
+	  </div>
+	</div>
+	
+	<audio id="sfx1" src="{{url_for('static',filename='src/assets/gameaudio/sfx/1.mp3')}}" preload="auto"></audio>
+	<audio id="sfx2" src="{{url_for('static',filename='src/assets/gameaudio/sfx/2.mp3')}}" preload="auto"></audio>
+	<audio id="sfx3" src="{{url_for('static',filename='src/assets/gameaudio/sfx/3.mp3')}}" preload="auto"></audio>
+  
+  <script>
+	var sfx1 = document.getElementById("sfx1");
+	var sfx2 = document.getElementById("sfx2");
+	var sfx3 = document.getElementById("sfx3");
+	
+	var letters = 'abcdefghijklmnopqrstuvwxyz'.split("");
+	var words = [
+	'ball',
+	'dog',
+	'pat',
+	'hen',
+	'rain',
+	'bat',
+	'box',
+	'egg',
+	'hat',
+	'cow',
+	'cat'
+	];
+	var random_word;
+	var random_no = 0;
+	var char_array = [];
+	var char_counter = 0;
+	
+	function randomize_word() {
+		var new_random_no = Math.floor(Math.random() * Math.floor(words.length));
+		random_no = random_no == new_random_no ? Math.floor(Math.random() * Math.floor(words.length)) : new_random_no;
+		random_word = words[random_no];
+		char_array = random_word.split("");
+		$("#word").html("");
+		$("#word_container img").attr("src", "{{url_for('static',filename='src/assets/images/gameimages/images-library/')}}"+random_word+'.jpg');
+		for(var i = 0; i < char_array.length; i++) {
+			$("#word").append("<span>"+char_array[i]+"</span>");
+		}
+		char_counter = 0;
+	}
+	
+	randomize_word();
+	
+  	for(var i = 0; i < letters.length; i++) {
+		$(".container .letter-row").append("<div class='col-2 block' data-letter='"+letters[i]+"'>"+letters[i]+"</div>");
+	}
+	
+	$(".container").on("click", ".block", function(){
+		var el = $(this);
+		var letter = el.attr("data-letter");
+		var correct = letter == char_array[char_counter];
+		el.addClass(correct ? "correct" : "wrong");
+		if(correct) {
+			sfx1.currentTime = 0;
+			sfx1.play();			
+			$("#word span:eq("+char_counter+")").addClass("highlight");
+			char_counter++;
+		} else {
+			sfx2.currentTime = 0;
+			sfx2.play();
+		}
+		
+		setTimeout(function() {
+			el.removeClass("correct");
+			el.removeClass("wrong");
+		}, 1000);
+		
+		if(correct && char_counter == char_array.length){
+			sfx3.play();
+			setTimeout(function() {
+				randomize_word();
+			}, 2000);
+		}
+	});
+
+	$("#show").click(function(){
+		if($(this).html() === 'Hide Word') {
+			$(this).html("Show Word");
+			$("#word").addClass("hide");
+		} else {
+			$(this).html("Hide Word");
+			$("#word").removeClass("hide");
+		}
+		
+	});
+  </script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-CE2K9J1S92');
+  </script>
+</body>
+</html>

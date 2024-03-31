@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE html>
+<html >
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+  <meta charset="UTF-8">
+  <title>Amazing Kids | Math</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+  
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Bangers|Oswald:300'>
+
+      <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='src/assets/css/gamecss/math.css') }}">
+	  
+</head>
+
+<body>
+  
+<h3> <span class="question"></span><span>= </span><span class="blinking">?</span></h3>
+<ul class="answers">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<p>Total points: <span class="points"></span></p>
+  
+    <script  type="text/javascript" src="static/src/assets/js/gamesjs/math.js" ></script>
+    
+
+</body>
+
+</html>

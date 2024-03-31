@@ -1,0 +1,18 @@
+runtime: python38
+env_variables:
+  CLOUD_SQL_USERNAME: amazing
+  CLOUD_SQL_PASSWORD: "`>'#tNY^6LCXg1;c"
+  CLOUD_SQL_DATABASE_NAME: school
+  CLOUD_SQL_CONNECTION_NAME: stellar-vista-371513:asia-south1:amazing
+  STRIPE_PUBLISHABLE_KEY: pk_live_51MFGxiSEhGK1MQdSIge0YfXx7zGLPJruOD7fVi3WS3uhcfoBiMoYfChIuyp5raBV5291ArVDBAUhjELz3MmFP5Jx00DYtKrxkW
+  STRIPE_SECRET_KEY: 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
+  STRIPE_PRICE_ID: price_1MFHSYSEhGK1MQdS74qKjdLP
+  STRIPE_ENDPOINT_SECRET: whsec_BCZROJMuoDGWgKlF0DwXxP5q1kLkBLug
+entrypoint: gunicorn -b :8080 main:app --log-level=DEBUG
+handlers:
+  - url: /.*
+    secure: always
+    redirect_http_response_code: 301
+    script: auto
+beta_settings:
+  cloud_sql_instances: stellar-vista-371513:asia-south1:amazing

@@ -1,0 +1,61 @@
+<html>
+<head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='src/assets/css/gamecss/stylePiano.css') }}">
+    
+    <title>Amazing Kids | Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+</head>
+
+<body>
+    <br><br>
+	<center>
+		<h id="h11" class="h1"> P </h>
+		<h id="h12" class="h1"> i </h>
+		<h id="h13" class="h1"> a </h>
+		<h id="h14" class="h1"> n </h>
+		<h id="h15" class="h1"> o </h>
+	</center>
+    <center><h2 id="level">level 1</h2></center>
+    <br><br><br>
+    
+	<div>
+	<center>
+		
+	<button id="but1" class="buttons"  > </button>
+	<button id="but2" class="buttons" > </button>
+	<button id="but3" class="buttons" > </button>
+	<button id="but4" class="buttons" > </button>
+	<button id="but5" class="buttons" > </button>
+	<button id="but6" class="buttons" > </button>
+	<button id="but7" class="buttons" > </button>
+	<button id="but8" class="buttons" > </button>
+	<button id="but9" class="buttons" > </button>
+	<button id="but10" class="buttons"> </button>
+
+	</center>
+	</div>
+    <br><br><br>
+    <center>
+        <input type="button" value="play pattern" id="replay" class="btn btn-default"/>
+        <input type="button" value="submit" id="submit" class="btn btn-default"/>
+    </center>
+    <center>
+		
+        <img src="{{ url_for('static',filename='src/assets/images/gameimages/wrong.png') }}" id="wrong"/>
+    </center>
+	<script type="text/javascript" src="{{ url_for('static',filename='src/assets/js/gamesjs/jsPiano.js') }}"></script>
+	
+</body>
+
+</html>

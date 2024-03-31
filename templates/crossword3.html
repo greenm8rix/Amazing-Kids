@@ -1,0 +1,669 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CE2K9J1S92"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CE2K9J1S92');
+</script>
+	<title>Amazing Kids | Crossword</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='src/assets/images/icon/logo.png')}}">
+<style type="text/css"><!--
+
+body, h1, h2, h3, h4, h5, h6
+{
+	font-family: Segoe UI, Franklin Gothic Medium, Arial, sans-serif;
+}
+
+h1, h2, h4, h5, h6
+{
+	color: #5d6a86;
+}
+h3 {
+	color:#000000;
+}
+
+body
+{
+	background:url("static/src/assets/images/gameimages/13776270_u55a_no7v_190728.jpg");
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	background-color:rgba(255, 154, 2, 0.658);
+	cursor: default;
+	font-size: small;
+	padding-left:200px;
+	padding-right:150px;
+	padding-top:120px;
+}
+
+a{
+	color:#000000;
+}
+
+
+.ecw-answerbox
+{
+	color: rgb(0, 0, 0);
+	background-color: transparent;
+	border-color: #ffffff;
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	padding: .75em;
+	width: 230pt;
+}
+
+.ecw-box
+{
+	border-style: solid;
+	border-width: 1pt;
+	cursor: pointer;
+	font-size: .13in;
+	font-weight: bold;
+	height: .21in;
+	overflow: hidden;
+	text-align: center;
+	width: .21in;
+}
+
+.ecw-boxcheated_sel
+{
+	background-color: #000000;
+	border-color: #C00000;
+	color: #2080D0;
+}
+
+.ecw-boxcheated_unsel
+{
+	background-color: #000000;
+	border-color: #606060;
+	color: #2080D0;
+}
+
+.ecw-boxerror_sel
+{
+	background-color: #FFF1D7;
+	border-color: #C00000;
+	color: #BF0000;
+}
+
+.ecw-boxerror_unsel
+{
+	background-color: #FFF0F0;
+	border-color: #606060;
+	color: #BF0000;
+}
+
+.ecw-boxnormal_sel
+{
+	background-color: #FFF1D7;
+	border-color: #C00000;
+	color: #000000;
+}
+
+.ecw-boxnormal_unsel
+{
+	background-color: #ffffff;
+	border-color: #606060;
+	color: #000000;
+}
+
+.ecw-button
+{
+	width: 70pt;
+}
+
+.ecw-cluebox
+{
+	border-bottom-width: 1px;
+	border-color: #c0c0c0;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-style: solid;
+	border-top-width: 1px;
+	margin-top: 1em;
+	padding-bottom: .5em;
+	padding-left: 0pt;
+	padding-right: 0pt;
+	padding-top: .5em;
+}
+
+.ecw-crosswordarea
+{
+	background-color: #transparent;
+	border-color: #808080;
+	border-style: none;
+	border-width: 2px;
+	padding: .5em;
+	font-family: Segoe UI, Verdana, Arial, sans-serif;
+	font-size: small;
+}
+
+.ecw-copyright
+{
+	margin-bottom: 1em;
+	font-size: x-small;
+	font-family: Segoe UI, Franklin Gothic Medium, Arial, sans-serif;
+}
+
+.ecw-input
+{
+	font-family: Segoe UI, Franklin Gothic Medium, Arial, sans-serif;
+	font-size:20px;
+}
+
+.ecw-wordlabel
+{
+	text-transform: uppercase;
+	margin: 0;
+	color: #000000;
+}
+
+.ecw-wordinfo
+{
+	font-size: 8pt;
+	color: #000000;
+}
+
+.ecw-worderror
+{
+	color: #c00000;
+	font-weight: bold;
+	display: none;
+	margin-top: 1em;
+}
+
+--></style>
+
+</head><body>
+
+
+<h3 style="margin-top: -1em;"></h3>
+
+<div id="waitmessage" class="ecw-answerbox">
+	This interactive crossword puzzle requires JavaScript and a reasonably recent web browser, such as Internet Explorer 5.5
+	or later, Netscape 7, Mozilla, Firefox, or Safari.  If you have disabled web page scripting, please re-enable it and refresh
+	the page.  If this web page is saved to your computer, you may need to click the yellow Information Bar at the top of
+	the page to allow the puzzle to load.
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0"><tr>
+
+<td class="ecw-crosswordarea"><table id="crossword" cellpadding="0" cellspacing="0" style="display: none; border-collapse: collapse;">
+
+<script type="text/javascript"><!--
+	CrosswordWidth = 12;
+	CrosswordHeight = 8;
+	Words = 18;
+	WordLength = new Array(3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3);
+	Word = new Array("483", "605", "568", "380", "387", "784", "276", "100", "450", "999", "368", "523", "434", "508", "836", "720", "749", "200");
+	Clue = new Array("How much is 3 + 80 + 400?", 
+"How much is 675 - 70?", 
+"How much is 508 + 60?", 
+"Here are three numbers: 253 , 380 , 634. <br> Write the number that has 3 at the hundreds place.", 
+"How much is 487 - 100?", 
+"Write the number: Seven hundred eighty four.", 
+"Here are three numbers: 754 , 276 , 967. <br> Write the number that has 7 at the tens place.", 
+"Write the smallest 3 digit number.", 
+"Write the number: Four hundred fifty.", 
+"Write the largest 3 digit number.", 
+"Write the number: Three hundred sixty eight.", 
+"Here are three numbers: 637 , 523 , 321. <br> Write the number that has 3 at the ones place.", 
+"How much is 30 + 4 + 400 ?", 
+"Wrtie the number: Five hundred and eight.", 
+"Here are three numbers: 836 , 483 , 258. <br> Write the number that has 8 at the hundreds place.", 
+"How much is 727 - 7?", 
+"How much is 700 + 40 + 9?", 
+"How much is 190 + 10?");
+	AnswerHash = new Array(-2373, -10874, -52440, -24782, -23011, -71698, -76240, -64439, -14037, 4022, -24276, -61841, -15981, -62394, -37026, -90464, -77669, -94384);
+	WordX = new Array(5, 7, 5, 3, 9, 1, 8, 0, 6, 4, 7, 9, 3, 5, 10, 1, 6, 8);
+	WordY = new Array(0, 1, 2, 3, 3, 4, 5, 6, 6, 7, 0, 1, 2, 2, 3, 4, 5, 5);
+	LastHorizontalWord = 9;
+	OnlyCheckOnce = false;
+//-->
+</script>
+
+<script type="text/javascript"><!--
+
+
+
+var BadChars = "`~!@^*()_={[}]\|:;\"',<.>/?";
+
+var TableAcrossWord, TableDownWord;
+var CurrentWord, PrevWordHorizontal, x, y, i, j;
+var CrosswordFinished, Initialized;
+
+// Check the user's browser and then initialize the puzzle.
+if (document.getElementById("waitmessage") != null)
+{
+	document.getElementById("waitmessage").innerHTML = "Please wait while the crossword is loaded...";
+	
+	// Current game variables
+	CurrentWord = -1;
+	PrevWordHorizontal = false;
+	
+	// Create the cell-to-word arrays.
+	TableAcrossWord = new Array(CrosswordWidth);
+	for (var x = 0; x < CrosswordWidth; x++) TableAcrossWord[x] = new Array(CrosswordHeight);
+	TableDownWord = new Array(CrosswordWidth);
+	for (var x = 0; x < CrosswordWidth; x++) TableDownWord[x] = new Array(CrosswordHeight);
+	for (var y = 0; y < CrosswordHeight; y++)
+		for (var x = 0; x < CrosswordWidth; x++)
+		{
+			TableAcrossWord[x][y] = -1;
+			TableDownWord[x][y] = -1;
+		}
+	
+	// First, add the horizontal words to the puzzle.
+	for (var i = 0; i <= LastHorizontalWord; i++)
+	{
+		x = WordX[i];
+		y = WordY[i];
+		for (var j = 0; j < WordLength[i]; j++)
+		{
+			TableAcrossWord[x + j][y] = i;
+		}
+	}
+	
+	// Second, add the vertical words to the puzzle.
+	for (var i = LastHorizontalWord + 1; i < Words; i++)
+	{
+		x = WordX[i];
+		y = WordY[i];
+		for (var j = 0; j < WordLength[i]; j++)
+		{
+			TableDownWord[x][y + j] = i;
+		}
+	}
+	
+	// Now, insert the row HTML into the table.
+	for (var y = 0; y < CrosswordHeight; y++)
+	{
+		document.writeln("<tr>");
+		for (var x = 0; x < CrosswordWidth; x++)
+		{
+			if (TableAcrossWord[x][y] >= 0 || TableDownWord[x][y] >= 0)
+				document.write("<td id=\"c" + PadNumber(x) + PadNumber(y) + "\" class=\"ecw-box ecw-boxnormal_unsel\" onclick=\"SelectThisWord(event);\">&nbsp;</td>");
+			else
+				document.write("<td></td>");
+		}
+		document.writeln("</tr>");
+	}
+	
+	// Finally, show the crossword and hide the wait message.
+	Initialized = true;
+	document.getElementById("waitmessage").style.display = "none";
+	document.getElementById("crossword").style.display = "block";
+}
+
+// ----------
+// Event handlers
+
+// Raised when a key is pressed in the word entry box.
+function WordEntryKeyPress(event)
+{
+	if (CrosswordFinished) return;
+	// Treat an Enter keypress as an OK click.
+	if (CurrentWord >= 0 && event.keyCode == 13) OKClick();
+}
+
+// ----------
+// Helper functions
+
+// Called when we're ready to start the crossword.
+function BeginCrossword()
+{
+	if (Initialized)
+	{
+		document.getElementById("welcomemessage").style.display = "";
+		document.getElementById("checkbutton").style.display = "";
+	}
+}
+
+// Returns true if the string passed in contains any characters prone to evil.
+function ContainsBadChars(theirWord)
+{
+	for (var i = 0; i < theirWord.length; i++)
+		if (BadChars.indexOf(theirWord.charAt(i)) >= 0) return true;
+	return false;
+}
+
+// Pads a number out to three characters.
+function PadNumber(number)
+{
+	if (number < 10)
+		return "00" + number;
+	else if (number < 100)
+		return "0" + number;
+	else
+		return "" +  number;
+}
+
+// Returns the table cell at a particular pair of coordinates.
+function CellAt(x, y)
+{
+	return document.getElementById("c" + PadNumber(x) + PadNumber(y));
+}
+
+// Deselects the current word, if there's a word selected.  DOES not change the value of CurrentWord.
+function DeselectCurrentWord()
+{
+	if (CurrentWord < 0) return;
+	var x, y, i;
+	
+	document.getElementById("answerbox").style.display = "none";
+	ChangeCurrentWordSelectedStyle(false);
+	CurrentWord = -1;
+	
+}
+
+// Changes the style of the cells in the current word.
+function ChangeWordStyle(WordNumber, NewStyle)
+{
+	if (WordNumber< 0) return;
+	var x = WordX[WordNumber];
+	var y = WordY[WordNumber];
+	
+	if (WordNumber<= LastHorizontalWord)
+		for (i = 0; i < WordLength[WordNumber]; i++)
+			CellAt(x + i, y).className = NewStyle;
+	else
+		for (i = 0; i < WordLength[WordNumber]; i++)
+			CellAt(x, y + i).className = NewStyle;
+}
+
+// Changes the style of the cells in the current word between the selected/unselected form.
+function ChangeCurrentWordSelectedStyle(IsSelected)
+{
+	if (CurrentWord < 0) return;
+	var x = WordX[CurrentWord];
+	var y = WordY[CurrentWord];
+	
+	if (CurrentWord <= LastHorizontalWord)
+		for (i = 0; i < WordLength[CurrentWord]; i++)
+			CellAt(x + i, y).className = CellAt(x + i, y).className.replace(IsSelected ? "_unsel" : "_sel", IsSelected ? "_sel" : "_unsel");
+	else
+		for (i = 0; i < WordLength[CurrentWord]; i++)
+			CellAt(x, y + i).className = CellAt(x, y + i).className.replace(IsSelected ? "_unsel" : "_sel", IsSelected ? "_sel" : "_unsel");
+}
+
+// Selects the new word by parsing the name of the TD element referenced by the 
+// event object, and then applying styles as necessary.
+function SelectThisWord(event)
+{
+	if (CrosswordFinished) return;
+	var x, y, i, TheirWord, TableCell;
+	
+	// Deselect the previous word if one was selected.
+	document.getElementById("welcomemessage").style.display = "none";
+	if (CurrentWord >= 0) OKClick();
+	DeselectCurrentWord();
+	
+	// Determine the coordinates of the cell they clicked, and then the word that
+	// they clicked.
+	var target = (event.srcElement ? event.srcElement: event.target);
+	x = parseInt(target.id.substring(1, 4), 10);
+	y = parseInt(target.id.substring(4, 7), 10);
+	
+	// If they clicked an intersection, choose the type of word that was NOT selected last time.
+	if (TableAcrossWord[x][y] >= 0 && TableDownWord[x][y] >= 0)
+		CurrentWord = PrevWordHorizontal ? TableDownWord[x][y] : TableAcrossWord[x][y];
+	else if (TableAcrossWord[x][y] >= 0)
+		CurrentWord = TableAcrossWord[x][y];
+	else if (TableDownWord[x][y] >= 0)
+		CurrentWord = TableDownWord[x][y];
+
+	PrevWordHorizontal = (CurrentWord <= LastHorizontalWord);
+	
+	// Now, change the style of the cells in this word.
+	ChangeCurrentWordSelectedStyle(true);
+	
+	// Then, prepare the answer box.
+	x = WordX[CurrentWord];
+	y = WordY[CurrentWord];
+	TheirWord = "";
+	var TheirWordLength = 0;
+	for (i = 0; i < WordLength[CurrentWord]; i++)
+	{
+		// Find the appropriate table cell.
+		if (CurrentWord <= LastHorizontalWord)
+			TableCell = CellAt(x + i, y);
+		else
+			TableCell = CellAt(x, y + i);
+		// Add its contents to the word we're building.
+		if (TableCell.innerHTML != null && TableCell.innerHTML.length > 0 && TableCell.innerHTML != " " && TableCell.innerHTML.toLowerCase() != "&nbsp;")
+		{
+			TheirWord += TableCell.innerHTML.toUpperCase();
+			TheirWordLength++;
+		}
+		else
+		{
+			TheirWord += "&bull;";
+		}
+	}
+	
+	document.getElementById("wordlabel").innerHTML = TheirWord;
+	document.getElementById("wordinfo").innerHTML = ((CurrentWord <= LastHorizontalWord) ? "Across, " : "Down, ") + WordLength[CurrentWord] + " digits.";
+	document.getElementById("wordclue").innerHTML = Clue[CurrentWord];
+	document.getElementById("worderror").style.display = "none";
+	document.getElementById("cheatbutton").style.display = (Word.length == 0) ? "none" : "";
+	if (TheirWordLength == WordLength[CurrentWord])
+		document.getElementById("wordentry").value = TheirWord;
+	else
+		document.getElementById("wordentry").value = "";
+	
+	// Finally, show the answer box.
+	document.getElementById("answerbox").style.display = "block";
+	try
+	{
+		document.getElementById("wordentry").focus();
+		document.getElementById("wordentry").select();
+	}
+	catch (e)
+	{
+	}
+	
+}
+
+// Called when the user clicks the OK link.
+function OKClick()
+{
+	var TheirWord, x, y, i, TableCell;
+	if (CrosswordFinished) return;
+	if (document.getElementById("okbutton").disabled) return;
+	
+	// First, validate the entry.
+	TheirWord = document.getElementById("wordentry").value.toUpperCase();
+	if (TheirWord.length == 0)
+	{
+		DeselectCurrentWord();
+		return;
+	}
+	if (ContainsBadChars(TheirWord))
+	{
+		document.getElementById("worderror").innerHTML = "The number that you typed contains invalid characters.  Please type only digits in the box above.";
+		document.getElementById("worderror").style.display = "block";
+		return;
+	}
+	if (TheirWord.length < WordLength[CurrentWord])
+	{
+		document.getElementById("worderror").innerHTML  = "You did not type enough digits.  This number has " + WordLength[CurrentWord] + " digits.";
+		document.getElementById("worderror").style.display = "block";
+		return;
+	}
+	if (TheirWord.length > WordLength[CurrentWord])
+	{
+		document.getElementById("worderror").innerHTML = "You typed too many digits.  This number has " + WordLength[CurrentWord] + " digits.";
+		document.getElementById("worderror").style.display = "block";
+		return;
+	}
+	
+	// If we made it this far, they typed an acceptable word, so add these letters to the puzzle and hide the entry box.
+	x = WordX[CurrentWord];
+	y = WordY[CurrentWord];
+	for (i = 0; i < TheirWord.length; i++)
+	{
+		TableCell = CellAt(x + (CurrentWord <= LastHorizontalWord ? i : 0), y + (CurrentWord > LastHorizontalWord ? i : 0));
+		TableCell.innerHTML = TheirWord.substring(i, i + 1);
+	}
+	DeselectCurrentWord();
+}
+
+// Called when the "check puzzle" link is clicked.
+function CheckClick()
+{
+	var i, j, x, y, UserEntry, ErrorsFound = 0, EmptyFound = 0, TableCell;
+	if (CrosswordFinished) return;
+	DeselectCurrentWord();
+	
+	for (y = 0; y < CrosswordHeight; y++)
+	for (x = 0; x < CrosswordWidth; x++)
+		if (TableAcrossWord[x][y] >= 0 || TableDownWord[x][y] >= 0)
+		{
+			TableCell = CellAt(x, y);
+			if (TableCell.className == "ecw-box ecw-boxerror_unsel") TableCell.className = "ecw-box ecw-boxnormal_unsel";
+		}
+		
+	for (i = 0; i < Words; i++)
+	{
+		// Get the user's entry for this word.
+		UserEntry = "";
+		for (j = 0; j < WordLength[i]; j++)
+		{
+			if (i <= LastHorizontalWord)
+				TableCell = CellAt(WordX[i] + j, WordY[i]);
+			else
+				TableCell = CellAt(WordX[i], WordY[i] + j);
+			if (TableCell.innerHTML.length > 0 && TableCell.innerHTML.toLowerCase() != "&nbsp;")
+			{
+				UserEntry += TableCell.innerHTML.toUpperCase();
+			}
+			else
+			{
+				UserEntry = "";
+				EmptyFound++;
+				break;
+			}
+		}
+		// If this word doesn't match, it's an error.
+		if (HashWord(UserEntry) != AnswerHash[i] && UserEntry.length > 0)
+		{
+			ErrorsFound++;
+			ChangeWordStyle(i, "ecw-box ecw-boxerror_unsel");
+		}
+	}
+	
+	// If they can only check once, disable things prematurely.
+	if ( OnlyCheckOnce )
+	{
+		CrosswordFinished = true;
+		document.getElementById("checkbutton").style.display = "none";
+	}
+	
+	// If errors were found, just exit now.
+	if (ErrorsFound > 0 && EmptyFound > 0)
+		document.getElementById("welcomemessage").innerHTML = ErrorsFound + (ErrorsFound > 1 ? " errors" : " error") + " and " + EmptyFound + (EmptyFound > 1 ? " incomplete answers were" : " incomplete answer was") + " found. You can continue to solve the puzzle.";
+	else if (ErrorsFound > 0)
+		document.getElementById("welcomemessage").innerHTML = ErrorsFound + (ErrorsFound > 1 ? " errors were" : " error was") + " found. You can continue to solve the puzzle.";
+	else if (EmptyFound > 0)
+		document.getElementById("welcomemessage").innerHTML = "No errors were found, but " + EmptyFound + (EmptyFound > 1 ? " incomplete answers were" : " incomplete answer was") + " found. You can continue to solve the puzzle.";
+	
+	if (ErrorsFound + EmptyFound > 0)
+	{
+		document.getElementById("welcomemessage").style.display = "";
+		return;
+	}
+			
+	// They finished the puzzle!
+	CrosswordFinished = true;
+	document.getElementById("checkbutton").style.display = "none";
+	document.getElementById("congratulations").style.display = "block";
+	document.getElementById("welcomemessage").style.display = "none";
+}
+
+// Called when the "cheat" link is clicked.
+function CheatClick()
+{
+	if (CrosswordFinished) return;
+	var OldWord = CurrentWord;
+	document.getElementById("wordentry").value = Word[CurrentWord];
+	OKClick();
+	ChangeWordStyle(OldWord, "ecw-box ecw-boxcheated_unsel");
+}
+
+// Returns a one-way hash for a word.
+function HashWord(Word)
+{
+	var x = (Word.charCodeAt(0) * 719) % 1138;
+	var Hash = 837;
+	var i;
+	for (i = 1; i <= Word.length; i++)
+		Hash = (Hash * i + 5 + (Word.charCodeAt(i - 1) - 64) * x) % 98503;
+	return Hash;
+}
+
+//-->
+</script>
+
+</table></td>
+
+<td valign="top" style="padding-left: 1em;">
+
+
+<div id="welcomemessage" class="ecw-answerbox" style="display:none;">
+<h3>Welcome!</h3>
+<p>Click an empty square in the puzzle to get started.</p>
+</div>
+
+<div id="answerbox" class="ecw-answerbox" style="display:none;">
+<h3 id="wordlabel" class="ecw-wordlabel"> &nbsp;</h3>
+<div id="wordinfo" class="ecw-wordinfo"> </div>
+<div id="wordclue" class="ecw-cluebox"> </div>
+<div style="margin-top: 1em;">
+	<input class="ecw-input" id="wordentry" type="text" size="24" style="font-weight: bold; text-transform:uppercase;" onkeypress="WordEntryKeyPress(event)" onchange="WordEntryKeyPress(event)" autocomplete="off" />
+</div>
+<div id="worderror" class="ecw-worderror"></div>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style="margin-top:1em;"><tbody><tr><td>
+<button id="okbutton" type="button" class="ecw-input ecw-button" onclick="OKClick();" style="font-weight: bold;">OK</button> &nbsp;
+<button id="cancelbutton" type="button" class="ecw-input ecw-button" onclick="DeselectCurrentWord();">Cancel</button>
+</td><td align="right">
+<button id="cheatbutton" type="button" class="ecw-input ecw-button" onclick="CheatClick();">Reveal Answer</button>
+
+</td></tr></tbody></table>
+
+</div>
+
+<div id="congratulations" class="ecw-answerbox" style="display:none;">
+<h3>Congratulations! You made it!</h3>
+
+
+</div>
+
+</td></tr></table>
+
+<div style="margin-top: 1em;">
+	<button id="checkbutton" type="button" onclick="CheckClick();" style="display: none; margin-top:20px;">Check puzzle</button>
+</div>
+
+<script language="JavaScript" type="text/javascript"><!--
+BeginCrossword();
+//-->
+</script>
+
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-CE2K9J1S92');
+  </script>
+</body></html>
+
